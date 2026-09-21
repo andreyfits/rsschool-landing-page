@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Coffee House menu — coffee, tea and desserts.">
+  <title>Coffee House — Menu</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <script>
+    (function () {
+      var theme = 'light';
+      try {
+        var saved = localStorage.getItem('coffee-house-theme');
+        if (saved === 'dark' || saved === 'light') {
+          theme = saved;
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          theme = 'dark';
+        }
+      } catch (e) { /* keep default */ }
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html" aria-label="Coffee House — home page">
+        <svg class="logo__icon" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="currentColor" opacity="0.12"/>
+          <path d="M8 12h13v6a5 5 0 0 1-5 5h-3a5 5 0 0 1-5-5v-6z" fill="currentColor"/>
+          <path d="M21 13h2a3 3 0 0 1 0 6h-2" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M12 6c0 1.5-1.2 1.7-1.2 3M15.5 6c0 1.5-1.2 1.7-1.2 3M19 6c0 1.5-1.2 1.7-1.2 3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <span class="logo__text">Coffee House</span>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="index.html#favorite">Favorite coffee</a></li>
+          <li class="nav__item"><a class="nav__link" href="index.html#about">About</a></li>
+          <li class="nav__item"><a class="nav__link" href="index.html#mobile-app">Mobile app</a></li>
+          <li class="nav__item"><a class="nav__link" href="#contacts">Contact us</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <a class="menu-link menu-link--active" href="menu.html" aria-current="page">
+          <span>Menu</span>
+          <svg class="menu-link__icon" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true">
+            <path d="M4 8h10v4.5A3.5 3.5 0 0 1 10.5 16h-3A3.5 3.5 0 0 1 4 12.5V8z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M14 9h1.4a2.1 2.1 0 0 1 0 4.2H14" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M7 4.5c0 .9-.8 1.1-.8 2M10 4.5c0 .9-.8 1.1-.8 2" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </a>
+
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+          <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5 5l1.7 1.7M17.3 17.3 19 19M19 5l-1.7 1.7M6.7 17.3 5 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path d="M20.4 14.2A8.5 8.5 0 0 1 9.8 3.6a8.5 8.5 0 1 0 10.6 10.6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <button class="burger" type="button" aria-label="Open menu" aria-expanded="false">
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section menu" id="menu">
+      <div class="container">
+        <h1 class="section__title menu__title">Behind each of our cups hides an <em>amazing surprise</em></h1>
+
+        <div class="menu__tabs" aria-label="Menu categories">
+          <button class="tab tab--active" type="button" aria-pressed="true" data-category="coffee">
+            <span class="tab__icon">
+              <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true">
+                <path d="M3 7h11v5a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M14 8h1.4a2.1 2.1 0 0 1 0 4.2H14" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M6.5 3.5c0 .9-.8 1.1-.8 2M9.5 3.5c0 .9-.8 1.1-.8 2" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="tab__label">Coffee</span>
+          </button>
+          <button class="tab" type="button" aria-pressed="false" data-category="tea">
+            <span class="tab__icon">
+              <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true">
+                <path d="M4 8.5h9V13a3.5 3.5 0 0 1-3.5 3.5h-2A3.5 3.5 0 0 1 4 13V8.5z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M13 9.5h1.2a1.9 1.9 0 0 1 0 3.8H13" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M8.5 3v2.5M6 5.5l1-1M11 5.5l-1-1" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="tab__label">Tea</span>
+          </button>
+          <button class="tab" type="button" aria-pressed="false" data-category="dessert">
+            <span class="tab__icon">
+              <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true">
+                <path d="M10 3c.8 1.6 2.4 2.6 2.4 4.4a2.4 2.4 0 0 1-4.8 0C7.6 5.6 9.2 4.6 10 3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+                <path d="M4.5 11.5h11l-1.2 4.7a1.5 1.5 0 0 1-1.4 1.1H7.1a1.5 1.5 0 0 1-1.4-1.1l-1.2-4.7z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="tab__label">Dessert</span>
+          </button>
+        </div>
+
+        <ul class="menu__grid">
+          <!-- Coffee -->
+          <li class="card" data-category="coffee">
+            <div class="card__image"><img src="assets/img/coffee-1.jpg" alt="Irish coffee" loading="lazy"></div>
+            <div class="card__body">
+              <h3 class="card__name">Irish coffee</h3>
+              <p class="card__description">Fragrant black coffee with Jameson Irish whiskey and whipped milk</p>
+              <p class="card__price">$7.00</p>
+            </div>
+          </li>
+          <li class="card" data-category="coffee">
+            <div class="card__image"><img src="assets/img/coffee-2.jpg" alt="Kahlua coffee" loading="lazy"></div>
+            <div class="card__body">
+              <h3 class="card__name">Kahlua coffee</h3>
+              <p class="card__description">Classic coffee with milk and Kahlua liqueur under a cap of frothed milk</p>
+              <p class="card__price">$7.00</p>
+            </div>
+          </li>
+          <li class="card" data-category="coffee">
+            <div class="card__image"><img src="assets/img/coffee-3.jpg" alt="Honey raf" loading="lazy"></div>
+            <div class="card__body">
+              <h3 class="card__name">Honey raf</h3>
+              <p class="card__description">Espresso with frothed milk, cream and aromatic honey</p>
+              <p class="card__price">$5.50</p>
+            </div>
+          </li>
+          <li class="card" data-category="coffee">
+            <div class="card__image"><img src="assets/img/coffee-4.jpg" alt="Ice cappuccino" loading="lazy"></div>
+            <div class="card__body">
+              <h3 class="card__name">Ice cappuccino</h3>
+              <p class="card__description">Cappuccino with soft thick foam in summer version with ice</p>
+              <p class="card__price">$5.00</p>
+            </div>
+          </li>
+          <li class="card" data-category="coffee">
+            <div class="card__image"><img src="assets/img/coffee-5.jpg" alt="Espresso" loading="lazy"></div>
+            <div class="card__body">
+              <h3 class="card__name">Espresso</h3>
+              <p class="card__description">Classic black coffee brewed under high pressure</p>
+              <p class="card__price">$4.50</p>
+            </div>
+          </li>
+          <li class="card" data-category="coffee">
+            <div class="card__image"><img src="assets/img/coffee-6.jpg" alt="Latte" loading="lazy"></div>
+            <div class="card__body">
+              <h3 class="card__name">Latte</h3>
+              <p class="card__description">Espresso coffee with the addition of steamed milk and dense milk foam</p>
+              <p class="card__price">$5.50</p>
+            </div>
+          </li>
+          <li class="card" data-category="coffee">
+            <div class="card__image"><img src="assets/img/coffee-7.jpg" alt="Latte macchiato" loading="lazy"></div>
+            <div class="card__body">
+              <h3 class="card__name">Latte macchiato</h3>
+              <p class="card__description">Espresso with frothed milk and chocolate</p>
+              <p class="card__price">$5.50</p>
+            </div>
+          </li>
+          <li class="card" data-category="coffee">
+            <div class="card__image"><img src="assets/img/coffee-8.jpg" alt="Coffee with cognac" loading="lazy"></div>
+            <div class="card__body">
+              <h3 class="card__name">Coffee with cognac</h3>
+              <p class="card__description">Fragrant black coffee with cognac and whipped cream</p>
+              <p class="card__price">$6.50</p>
+            </div>
+          </li>
+
+          <!-- Tea -->
+          <li class="card" data-category="tea" hidden>
+            <div class="card__image"><img src="assets/img/tea-1.jpg" alt="Moroccan tea" loading="lazy"></div>
+            <div class="card__body">
+              <h3 class="card__name">Moroccan</h3>
+              <p class="card__description">Fragrant black tea with the addition of tangerine, cinnamon, honey, lemon and mint</p>
+              <p class="card__price">$4.50</p>
+            </div>
+          </li>
+          <li class="card" data-category="tea" hidden>
+            <div class="card__image"><img src="assets/img/tea-2.jpg" alt="Ginger tea" loading="lazy"></div>
+            <div class="card__body">
+              <h3 class="card__name">Ginger</h3>
+              <p class="card__description">Original black tea with fresh ginger, lemon and honey</p>
+              <p class="card__price">$5.00</p>
+            </div>
+          </li>
+          <li class="card" data-category="tea" hidden>
+            <div class="card__image"><img src="assets/img/tea-3.jpg" alt="Cranberry tea" loading="lazy"></div>
+            <div class="card__body">
+              <h3 class="card__name">Cranberry</h3>
+              <p class="card__description">Invigorating black tea with cranberry and honey</p>
+              <p class="card__price">$5.00</p>
+            </div>
+          </li>
+          <li class="card" data-category="tea" hidden>
+            <div class="card__image"><img src="assets/img/tea-4.jpg" alt="Sea buckthorn tea" loading="lazy"></div>
+            <div class="card__body">
+              <h3 class="card__name">Sea buckthorn</h3>
+              <p class="card__description">Toning sweet drink with sea buckthorn, fresh thyme and cinnamon</p>
+              <p class="card__price">$5.50</p>
+            </div>
+          </li>
+
+          <!-- Dessert -->
+          <li class="card" data-category="dessert" hidden>
+            <div class="card__image"><img src="assets/img/dessert-1.jpg" alt="Marble cheesecake" loading="lazy"></div>
+            <div class="card__body">
+              <h3 class="card__name">Marble cheesecake</h3>
+              <p class="card__description">Philadelphia cheese with lemon zest on a light sponge cake and red currant jam</p>
+              <p class="card__price">$3.50</p>
+            </div>
+          </li>
+          <li class="card" data-category="dessert" hidden>
+            <div class="card__image"><img src="assets/img/dessert-2.jpg" alt="Red velvet cake" loading="lazy"></div>
+            <div class="card__body">
+              <h3 class="card__name">Red velvet</h3>
+              <p class="card__description">Layer cake with cream cheese frosting</p>
+              <p class="card__price">$4.00</p>
+            </div>
+          </li>
+          <li class="card" data-category="dessert" hidden>
+            <div class="card__image"><img src="assets/img/dessert-3.jpg" alt="Cheesecake" loading="lazy"></div>
+            <div class="card__body">
+              <h3 class="card__name">Cheesecake</h3>
+              <p class="card__description">Soft cottage cheese pancakes with sour cream and fresh berries and sprinkled with powdered sugar</p>
+              <p class="card__price">$4.50</p>
+            </div>
+          </li>
+          <li class="card" data-category="dessert" hidden>
+            <div class="card__image"><img src="assets/img/dessert-4.jpg" alt="Creme brulee" loading="lazy"></div>
+            <div class="card__body">
+              <h3 class="card__name">Creme brulee</h3>
+              <p class="card__description">Delicate creamy dessert in a caramel basket with wild berries</p>
+              <p class="card__price">$4.00</p>
+            </div>
+          </li>
+        </ul>
+
+        <button class="menu__more" type="button" aria-label="Show more products">
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path d="M20 12a8 8 0 1 1-2.3-5.6M20 3.5V8h-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contacts">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__left">
+          <h2 class="footer__title">Sip, Savor, Smile. <em>It's coffee time!</em></h2>
+          <ul class="footer__socials">
+            <li>
+              <a class="social" href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="Coffee House on X (Twitter)">
+                <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                  <path d="M17.7 3H21l-7.3 8.3L22.2 21h-6.7l-5.2-6.3L4.4 21H1l7.8-8.9L1.8 3h6.9l4.7 5.7L17.7 3zm-1.2 16h1.9L7.1 4.9H5L16.5 19z" fill="currentColor"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="social" href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Coffee House on Instagram">
+                <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                  <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                  <circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="social" href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Coffee House on Facebook">
+                <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                  <path d="M13.5 21v-7h2.6l.5-3.2h-3.1V8.7c0-.9.3-1.6 1.7-1.6h1.5V4.2c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.7H7.8V14h2.7v7h3z" fill="currentColor"/>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer__right">
+          <h3 class="footer__subtitle">Contact us</h3>
+          <ul class="footer__contacts">
+            <li>
+              <a class="footer__contact" href="https://maps.google.com/?q=8558+Pecan+St.,+Pittsburgh,+PA+15217" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                  <path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                  <circle cx="12" cy="10" r="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
+                <span>8558 Green Rd., LA</span>
+              </a>
+            </li>
+            <li>
+              <a class="footer__contact" href="tel:+16035550123">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                  <path d="M6.6 3.5c.6-.2 1.3.1 1.6.7l1.5 2.8c.3.6.2 1.3-.3 1.8l-1.2 1.1c.9 1.9 2.4 3.4 4.3 4.3l1.1-1.2c.5-.5 1.2-.6 1.8-.3l2.8 1.5c.6.3.9 1 .7 1.6l-.6 2.1c-.2.7-.8 1.1-1.5 1.1C9.7 19 5 14.3 5 7.1c0-.7.4-1.3 1.1-1.5l.5-.2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                </svg>
+                <span>+1 (603) 555-0123</span>
+              </a>
+            </li>
+            <li>
+              <span class="footer__contact footer__contact--static">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                  <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                  <path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+                <span>Mon–Sat: 9:00 AM – 11:00 PM</span>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/theme.js"></script>
+</body>
+</html>
