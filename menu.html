@@ -22,7 +22,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -78,7 +78,7 @@
       <div class="container">
         <h1 class="section__title menu__title">Behind each of our cups hides an <em>amazing surprise</em></h1>
 
-        <div class="menu__tabs" aria-label="Menu categories">
+        <div class="menu__tabs" role="group" aria-label="Menu categories">
           <button class="tab tab--active" type="button" aria-pressed="true" data-category="coffee">
             <span class="tab__icon"><img src="assets/icons/coffee-tab-icon.png" alt="" width="17" height="17"></span>
             <span class="tab__label">Coffee</span>
@@ -98,7 +98,7 @@
           <li class="card" data-category="coffee">
             <div class="card__image"><img src="assets/img/coffee-1.jpg" alt="Irish coffee" loading="lazy"></div>
             <div class="card__body">
-              <h3 class="card__name">Irish coffee</h3>
+              <h2 class="card__name">Irish coffee</h2>
               <p class="card__description">Fragrant black coffee with Jameson Irish whiskey and whipped milk</p>
               <p class="card__price">$7.00</p>
             </div>
@@ -106,7 +106,7 @@
           <li class="card" data-category="coffee">
             <div class="card__image"><img src="assets/img/coffee-2.jpg" alt="Kahlua coffee" loading="lazy"></div>
             <div class="card__body">
-              <h3 class="card__name">Kahlua coffee</h3>
+              <h2 class="card__name">Kahlua coffee</h2>
               <p class="card__description">Classic coffee with milk and Kahlua liqueur under a cap of frothed milk</p>
               <p class="card__price">$7.00</p>
             </div>
@@ -114,7 +114,7 @@
           <li class="card" data-category="coffee">
             <div class="card__image"><img src="assets/img/coffee-3.jpg" alt="Honey raf" loading="lazy"></div>
             <div class="card__body">
-              <h3 class="card__name">Honey raf</h3>
+              <h2 class="card__name">Honey raf</h2>
               <p class="card__description">Espresso with frothed milk, cream and aromatic honey</p>
               <p class="card__price">$5.50</p>
             </div>
@@ -122,7 +122,7 @@
           <li class="card" data-category="coffee">
             <div class="card__image"><img src="assets/img/coffee-4.jpg" alt="Ice cappuccino" loading="lazy"></div>
             <div class="card__body">
-              <h3 class="card__name">Ice cappuccino</h3>
+              <h2 class="card__name">Ice cappuccino</h2>
               <p class="card__description">Cappuccino with soft thick foam in summer version with ice</p>
               <p class="card__price">$5.00</p>
             </div>
@@ -130,7 +130,7 @@
           <li class="card" data-category="coffee">
             <div class="card__image"><img src="assets/img/coffee-5.jpg" alt="Espresso" loading="lazy"></div>
             <div class="card__body">
-              <h3 class="card__name">Espresso</h3>
+              <h2 class="card__name">Espresso</h2>
               <p class="card__description">Classic black coffee</p>
               <p class="card__price">$4.50</p>
             </div>
@@ -138,7 +138,7 @@
           <li class="card" data-category="coffee">
             <div class="card__image"><img src="assets/img/coffee-6.jpg" alt="Latte" loading="lazy"></div>
             <div class="card__body">
-              <h3 class="card__name">Latte</h3>
+              <h2 class="card__name">Latte</h2>
               <p class="card__description">Espresso coffee with the addition of steamed milk and dense milk foam</p>
               <p class="card__price">$5.50</p>
             </div>
@@ -146,7 +146,7 @@
           <li class="card" data-category="coffee">
             <div class="card__image"><img src="assets/img/coffee-7.jpg" alt="Latte macchiato" loading="lazy"></div>
             <div class="card__body">
-              <h3 class="card__name">Latte macchiato</h3>
+              <h2 class="card__name">Latte macchiato</h2>
               <p class="card__description">Espresso with frothed milk and chocolate</p>
               <p class="card__price">$5.50</p>
             </div>
@@ -154,7 +154,7 @@
           <li class="card" data-category="coffee">
             <div class="card__image"><img src="assets/img/coffee-8.jpg" alt="Coffee with cognac" loading="lazy"></div>
             <div class="card__body">
-              <h3 class="card__name">Coffee with cognac</h3>
+              <h2 class="card__name">Coffee with cognac</h2>
               <p class="card__description">Fragrant black coffee with cognac and whipped cream</p>
               <p class="card__price">$6.50</p>
             </div>
@@ -164,7 +164,7 @@
           <li class="card" data-category="tea" hidden>
             <div class="card__image"><img src="assets/img/tea-1.jpg" alt="Moroccan tea" loading="lazy"></div>
             <div class="card__body">
-              <h3 class="card__name">Moroccan</h3>
+              <h2 class="card__name">Moroccan</h2>
               <p class="card__description">Fragrant black tea with the addition of tangerine, cinnamon, honey, lemon and mint</p>
               <p class="card__price">$4.50</p>
             </div>
@@ -172,7 +172,7 @@
           <li class="card" data-category="tea" hidden>
             <div class="card__image"><img src="assets/img/tea-2.jpg" alt="Ginger tea" loading="lazy"></div>
             <div class="card__body">
-              <h3 class="card__name">Ginger</h3>
+              <h2 class="card__name">Ginger</h2>
               <p class="card__description">Original black tea with fresh ginger, lemon and honey</p>
               <p class="card__price">$5.00</p>
             </div>
@@ -180,7 +180,7 @@
           <li class="card" data-category="tea" hidden>
             <div class="card__image"><img src="assets/img/tea-3.jpg" alt="Cranberry tea" loading="lazy"></div>
             <div class="card__body">
-              <h3 class="card__name">Cranberry</h3>
+              <h2 class="card__name">Cranberry</h2>
               <p class="card__description">Invigorating black tea with cranberry and honey</p>
               <p class="card__price">$5.00</p>
             </div>
@@ -188,7 +188,7 @@
           <li class="card" data-category="tea" hidden>
             <div class="card__image"><img src="assets/img/tea-4.jpg" alt="Sea buckthorn tea" loading="lazy"></div>
             <div class="card__body">
-              <h3 class="card__name">Sea buckthorn</h3>
+              <h2 class="card__name">Sea buckthorn</h2>
               <p class="card__description">Toning sweet black tea with sea buckthorn, fresh thyme and cinnamon</p>
               <p class="card__price">$5.50</p>
             </div>
@@ -198,7 +198,7 @@
           <li class="card" data-category="dessert" hidden>
             <div class="card__image"><img src="assets/img/dessert-1.jpg" alt="Marble cheesecake" loading="lazy"></div>
             <div class="card__body">
-              <h3 class="card__name">Marble cheesecake</h3>
+              <h2 class="card__name">Marble cheesecake</h2>
               <p class="card__description">Philadelphia cheese with lemon zest on a light sponge cake and red currant jam</p>
               <p class="card__price">$3.50</p>
             </div>
@@ -206,7 +206,7 @@
           <li class="card" data-category="dessert" hidden>
             <div class="card__image"><img src="assets/img/dessert-2.jpg" alt="Red velvet cake" loading="lazy"></div>
             <div class="card__body">
-              <h3 class="card__name">Red velvet</h3>
+              <h2 class="card__name">Red velvet</h2>
               <p class="card__description">Layer cake with cream cheese frosting</p>
               <p class="card__price">$4.00</p>
             </div>
@@ -214,7 +214,7 @@
           <li class="card" data-category="dessert" hidden>
             <div class="card__image"><img src="assets/img/dessert-3.jpg" alt="Cheesecake" loading="lazy"></div>
             <div class="card__body">
-              <h3 class="card__name">Cheesecakes</h3>
+              <h2 class="card__name">Cheesecakes</h2>
               <p class="card__description">Soft cottage cheese pancakes with sour cream and fresh berries and sprinkled with powdered sugar</p>
               <p class="card__price">$4.50</p>
             </div>
@@ -222,7 +222,7 @@
           <li class="card" data-category="dessert" hidden>
             <div class="card__image"><img src="assets/img/dessert-4.jpg" alt="Creme brulee" loading="lazy"></div>
             <div class="card__body">
-              <h3 class="card__name">Creme brulee</h3>
+              <h2 class="card__name">Creme brulee</h2>
               <p class="card__description">Delicate creamy dessert in a caramel basket with wild berries</p>
               <p class="card__price">$4.00</p>
             </div>
@@ -230,7 +230,7 @@
           <li class="card" data-category="dessert" hidden>
             <div class="card__image"><img src="assets/img/dessert-5.jpg" alt="Pancakes" loading="lazy"></div>
             <div class="card__body">
-              <h3 class="card__name">Pancakes</h3>
+              <h2 class="card__name">Pancakes</h2>
               <p class="card__description">Tender pancakes with strawberry jam and fresh strawberries</p>
               <p class="card__price">$4.50</p>
             </div>
@@ -238,7 +238,7 @@
           <li class="card" data-category="dessert" hidden>
             <div class="card__image"><img src="assets/img/dessert-6.jpg" alt="Honey cake" loading="lazy"></div>
             <div class="card__body">
-              <h3 class="card__name">Honey cake</h3>
+              <h2 class="card__name">Honey cake</h2>
               <p class="card__description">Classic honey cake with delicate custard</p>
               <p class="card__price">$4.50</p>
             </div>
@@ -246,7 +246,7 @@
           <li class="card" data-category="dessert" hidden>
             <div class="card__image"><img src="assets/img/dessert-7.jpg" alt="Chocolate cake" loading="lazy"></div>
             <div class="card__body">
-              <h3 class="card__name">Chocolate cake</h3>
+              <h2 class="card__name">Chocolate cake</h2>
               <p class="card__description">Cake with hot chocolate filling and nuts with dried apricots</p>
               <p class="card__price">$5.50</p>
             </div>
@@ -254,7 +254,7 @@
           <li class="card" data-category="dessert" hidden>
             <div class="card__image"><img src="assets/img/dessert-8.jpg" alt="Black forest" loading="lazy"></div>
             <div class="card__body">
-              <h3 class="card__name">Black forest</h3>
+              <h2 class="card__name">Black forest</h2>
               <p class="card__description">A combination of thin sponge cake with cherry jam and light cottage cheese cream</p>
               <p class="card__price">$6.50</p>
             </div>
