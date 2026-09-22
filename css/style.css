@@ -921,6 +921,10 @@ a.footer__contact:hover::after {
     display: none;
   }
 
+  .about__item--big img {
+    transform: scale(1.05);
+  }
+
   .menu__grid {
     gap: 32px;
   }
@@ -941,10 +945,6 @@ a.footer__contact:hover::after {
 
   .slider {
     justify-content: center;
-  }
-
-  .about__item--big {
-    height: 420px;
   }
 
   .mobile-app__screens {
@@ -995,8 +995,8 @@ a.footer__contact:hover::after {
     padding-bottom: 20px;
   }
 
-  .about__item--big {
-    height: 348px;
+  .about__item--big img {
+    transform: scale(1.24);
   }
 
   .mobile-app__buttons {
