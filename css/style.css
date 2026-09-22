@@ -502,11 +502,11 @@ footer[id] {
 }
 
 .about__item--big {
-  height: 590px;
+  aspect-ratio: 660 / 590;
 }
 
 .about__item--small {
-  height: 430px;
+  aspect-ratio: 660 / 430;
 }
 
 .about__item img {
@@ -516,12 +516,9 @@ footer[id] {
   transition: var(--transition-zoom);
 }
 
-.about__item--big img {
-  transform: scale(1.12);
-}
-
+.about__item--big img,
 .about__item--small img {
-  transform: scale(1.09);
+  transform: scale(1.10);
 }
 
 .about__item:hover img {
@@ -921,10 +918,6 @@ a.footer__contact:hover::after {
     display: none;
   }
 
-  .about__item--big img {
-    transform: scale(1.05);
-  }
-
   .menu__grid {
     gap: 32px;
   }
@@ -997,6 +990,10 @@ a.footer__contact:hover::after {
 
   .about__item--big img {
     transform: scale(1.24);
+  }
+
+  .about__item--big {
+    aspect-ratio: 348 / 590;
   }
 
   .mobile-app__buttons {
