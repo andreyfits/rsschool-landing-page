@@ -540,7 +540,7 @@ footer[id] {
   flex: 1 1 50%;
 }
 
-.mobile-app__content .section__title {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            .mobile-app__content .section__title {
   text-align: left;
   margin: 0 0 40px;
 }
@@ -991,6 +991,8 @@ a.footer__contact:hover::after {
 
   .header__inner {
     gap: 12px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 
   .about__item--big {
