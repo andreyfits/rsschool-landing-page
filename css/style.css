@@ -12,6 +12,7 @@
   --bg-backdrop: rgba(64, 63, 61, 0.35);
   --border-light: #c1b6ad;
   --border-dark: #665f55;
+  --border-social: #c1b6ad;
 
   --text-dark: #403f3d;
   --text-light: #e1d4c9;
@@ -33,6 +34,7 @@
   --bg-backdrop: rgba(20, 17, 15, 0.5);
   --border-light: #c1b6ad;
   --border-dark: #c1b6ad;
+  --border-social: #665f55;
 
   --text-dark: #e1d4c9;
   --text-light: #e1d4c9;
@@ -646,16 +648,16 @@ footer[id] {
   justify-content: center;
   width: 60px;
   height: 60px;
-  border: 1px solid var(--border-light);
+  border: 1px solid var(--border-social);
   border-radius: 50%;
   color: var(--text-light);
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .social:hover {
-  background-color: var(--text-light);
-  color: var(--bg-container-dark);
-  border-color: var(--text-light);
+  background-color: var(--bg-body);
+  color: var(--text-dark);
+  border-color: transparent;
 }
 
 .footer__right {
