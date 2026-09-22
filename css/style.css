@@ -891,7 +891,8 @@ a.footer__contact:hover::after {
 }
 
 @media (max-width: 768px) {
-  .nav {
+  .nav,
+  .menu-link {
     display: none;
   }
 
@@ -990,20 +991,6 @@ a.footer__contact:hover::after {
 
   .header__inner {
     gap: 12px;
-  }
-
-  .menu-link span {
-    display: none;
-  }
-
-  .menu-link {
-    padding: 10px;
-    border: 1px solid var(--border-dark);
-    border-radius: 50%;
-  }
-
-  .menu-link::after {
-    display: none;
   }
 
   .about__item--big {
