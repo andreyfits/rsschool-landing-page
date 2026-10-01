@@ -11,7 +11,10 @@ export function initBurgerMenu(mqMobile) {
 
   const syncNavTop = () => {
     if (header) {
-      document.documentElement.style.setProperty('--header-h', `${header.offsetHeight}px`);
+      /* panel must start at the header's current viewport bottom, not its full
+         height — the header is static and partially scrolls off-screen */
+      const bottom = Math.max(0, header.getBoundingClientRect().bottom);
+      document.documentElement.style.setProperty('--header-h', `${bottom}px`);
     }
   };
 
