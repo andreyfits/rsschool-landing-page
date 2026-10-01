@@ -4,6 +4,39 @@
    about, mobile app, footer, menu page, responsive
    ============================================================ */
 
+/* ---------- Local fonts ---------- */
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter-SemiBoldItalic.woff2") format("woff2");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
 /* ---------- Theme variables ---------- */
 :root {
   --bg-body: #e1d4c9;
@@ -24,6 +57,13 @@
   --dot-track: #c1b6ad;
   --dot-active: #665f55;
 
+  --bg-modal: #e1d4c9;
+  --modal-border: #c1b6ad;
+  --modal-key-bg: #c1b6ad;
+  --modal-key-text: #403f3d;
+  --modal-active-bg: #665f55;
+  --modal-active-key-bg: #e1d4c9;
+
   --transition-colors: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   --transition-bg: background-color 0.3s ease;
   --transition-theme: background-color 0.4s ease, color 0.4s ease;
@@ -39,7 +79,7 @@
   --bg-card: transparent;
   --bg-container-dark: #403f3d;
   --bg-backdrop: rgba(20, 17, 15, 0.5);
-  --border-light: #c1b6ad;
+  --border-light: #665f55;
   --border-dark: #c1b6ad;
   --border-social: #665f55;
 
@@ -52,6 +92,13 @@
 
   --dot-track: #665f55;
   --dot-active: #c1b6ad;
+
+  --bg-modal: #403f3d;
+  --modal-border: #665f55;
+  --modal-key-bg: #665f55;
+  --modal-key-text: #e1d4c9;
+  --modal-active-bg: #292826;
+  --modal-active-key-bg: #403f3d;
 
   --color-scheme: dark;
 }
@@ -93,6 +140,14 @@ h1, h2, h3, p, ul {
 
 ul {
   list-style: none;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body.no-scroll {
+  overflow: hidden;
 }
 
 a {
@@ -289,7 +344,7 @@ footer[id] {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 7px;
   width: 44px;
   height: 44px;
   border: 1px solid var(--border-dark);
@@ -299,20 +354,27 @@ footer[id] {
 
 .burger__line {
   display: block;
-  width: 18px;
+  width: 16px;
   height: 2px;
   border-radius: 1px;
   background-color: var(--text-dark);
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.burger:hover {
-  background-color: var(--button-bg);
-  border-color: var(--button-bg);
+.burger--open .burger__line:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
 }
 
-.burger:hover .burger__line {
-  background-color: var(--button-text);
+.burger--open .burger__line:nth-child(2) {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
+.nav__item--menu {
+  display: none;
+}
+
+.nav__link--active::after {
+  width: 100%;
 }
 
 /* ---------- Hero ---------- */
@@ -416,15 +478,27 @@ footer[id] {
 
 .slider__track {
   display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slider__viewport {
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.slider__viewport:active {
+  cursor: grabbing;
 }
 
 .slider__slide {
   flex: 0 0 100%;
   min-width: 0;
+  user-select: none;
 }
 
-.slider__slide[aria-hidden="true"] {
-  visibility: hidden;
+.slider__slide img {
+  -webkit-user-drag: none;
+  pointer-events: none;
 }
 
 .slide {
@@ -839,6 +913,176 @@ a.footer__contact:hover::after {
   border-color: var(--bg-container-dark);
 }
 
+/* ---------- Modal ---------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: var(--bg-backdrop);
+}
+
+.modal {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  width: 100%;
+  max-width: 800px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  padding: 16px;
+  border-radius: 40px;
+  background-color: var(--bg-modal);
+  color: var(--text-dark);
+  cursor: default;
+  transition: var(--transition-theme);
+}
+
+.modal__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--modal-border);
+  border-radius: 100px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-dark);
+  transition: var(--transition-colors);
+}
+
+.modal__close:hover {
+  background-color: var(--modal-active-bg);
+  color: var(--text-light);
+  border-color: var(--modal-active-bg);
+}
+
+.modal__image {
+  flex: 0 0 310px;
+  align-self: flex-start;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+.modal__image img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.modal__content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  min-width: 0;
+}
+
+.modal__name {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.modal__description {
+  line-height: 1.5;
+}
+
+.modal__label {
+  font-weight: 400;
+  margin-bottom: -12px;
+}
+
+.modal__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.option {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px 8px 8px;
+  border: 1px solid var(--modal-border);
+  border-radius: 100px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-dark);
+  transition: var(--transition-colors);
+}
+
+.option__key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--modal-key-bg);
+  color: var(--modal-key-text);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  transition: var(--transition-colors);
+}
+
+.option:hover {
+  background-color: var(--modal-active-bg);
+  color: var(--text-light);
+  border-color: var(--modal-active-bg);
+}
+
+.option:hover .option__key,
+.option--active .option__key {
+  background-color: var(--modal-active-key-bg);
+  color: var(--modal-key-text);
+}
+
+.option--active,
+.option--active:hover {
+  background-color: var(--modal-active-bg);
+  color: var(--text-light);
+  border-color: var(--modal-active-bg);
+}
+
+.modal__total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.modal__alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--modal-border);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.modal__alert svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+}
+
+.menu__error {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-weight: 600;
+}
+
 /* ============================================================
    Responsive
    ============================================================ */
@@ -888,9 +1132,61 @@ a.footer__contact:hover::after {
 }
 
 @media (max-width: 768px) {
-  .nav,
   .menu-link {
     display: none;
+  }
+
+  /* burger menu panel: slides in from the right, fills space under header */
+  .nav {
+    position: fixed;
+    top: var(--header-h, 100px);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 90;
+    display: flex;
+    background-color: var(--bg-body);
+    overflow-y: auto;
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform 0.4s ease, visibility 0s linear 0.4s;
+  }
+
+  .nav--open {
+    transform: translateX(0);
+    visibility: visible;
+    transition: transform 0.4s ease;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    width: 100%;
+    margin: auto;
+    padding: 60px 40px;
+  }
+
+  .nav__link {
+    font-size: 32px;
+    line-height: 1.25;
+  }
+
+  .nav__item--menu {
+    display: list-item;
+    margin-top: 40px;
+  }
+
+  .nav__item--menu .nav__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .nav__item--menu .menu-link__icon {
+    width: 40px;
+    height: 40px;
   }
 
   .burger {
@@ -920,6 +1216,10 @@ a.footer__contact:hover::after {
 
   .menu__grid {
     gap: 32px;
+  }
+
+  .modal {
+    max-width: 688px;
   }
 }
 
@@ -955,6 +1255,15 @@ a.footer__contact:hover::after {
     grid-template-columns: 1fr;
     max-width: 420px;
     margin: 0 auto;
+  }
+
+  /* modal loses the image at small widths */
+  .modal {
+    max-width: 342px;
+  }
+
+  .modal__image {
+    display: none;
   }
 }
 
@@ -1001,6 +1310,14 @@ a.footer__contact:hover::after {
   }
 
   .footer__inner {
+    border-radius: 32px;
+  }
+
+  .modal {
+    border-radius: 32px;
+  }
+
+  .modal__image {
     border-radius: 32px;
   }
 }
